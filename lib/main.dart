@@ -1,15 +1,24 @@
+
+
+
 import 'package:flutter/material.dart';
 
 void main()=>runApp(App());
 
+const items=<String>['第1項','第2項','第3項','第4項','第5項','第6項','第7項','第8項'];
 
-final List<String> entries = <String>['項目1', '項目2', '項目3'];
-final List<int> colorCodes = <int>[600, 500, 100];
+
+const icons=<String>['Icons.accessible ','Icons.abc_sharp','Icons.access_alarms_sharp ','Icons.accessibility_sharp','Icons.account_balance_sharp ','Icons.account_circle_rounded ','Icons.add_a_photo_outlined ','Icons.add_circle_outline_outlined'];
 
 
 class App extends StatelessWidget{
 
+
+
+
+
   Widget build(BuildContext context){
+
     @override
     var appTitle=Text('flutter button');
 
@@ -25,20 +34,37 @@ class App extends StatelessWidget{
     return app;
   }
 
-  var appBody =
+  var appBody =Container(
 
-  ListView.separated(
-    padding: const EdgeInsets.all(8),
-    itemCount: entries.length,
-    itemBuilder: (BuildContext context, int index) {
-      return Container(
-        height: 50,
-        color: Colors.amber[colorCodes[index]],
-        child: Center(child: Text('Entry ${entries[index]}')),
-      );
-    },
-    separatorBuilder: (BuildContext context, int index) => const Divider(),
-  );
+
+      child:
+
+
+
+      ListView.separated(
+
+        itemCount: items.length,
+        itemBuilder: (content,index) =>
+
+Card(
+            child:ListTile(title:Text(items[index]),
+              onTap:(){},
+              leading:Container(
+                child: CircleAvatar(backgroundImage: AssetImage(icons[index],),),
+
+              ),
+              subtitle:Text(items[index]+'項目說明',style:TextStyle(fontSize: 16),),),
+),
+        separatorBuilder: (content,index) => const Divider(),
+      ),
+);
+
+
+
+
+
+
+
 
 
 
